@@ -39,7 +39,7 @@ if __name__ == '__main__':
         with open('resultc.txt','r+') as g:
             for line in f:
                 text = line.rstrip('\n')
-                rtext = rotate_word(text,20)
+                rtext = rotate_word(text,7)
                 g.write(rtext)
                 g.write('\n')
             g.close()
