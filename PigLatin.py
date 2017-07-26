@@ -1,28 +1,25 @@
-# Pig Latin challenge for /r/Renegade_Pythons
+from collections import deque
+
+#function to translate a word into piglatin
 def translate(word):
-    if isinstance(word,str):
-        if   len(word) > 0:
-            words =  word.split()
-            l = len(words)
-            final =""
-            for i in range(l):
-                w =  words[i]
-                if w[0] in ["a","e","i","o","u","y"]:
-                    new = w + "way"
-                else :
-                    listtext = list(w)
-                    listopt = []
-                    while listtext[0] not in ["a","e","i","o","u","y"]:
-                        listopt.append(listtext[0])
-                        del listtext[0]
-                    listtext.extend(listopt)
-                    listtext.extend(["a","y"])
-                    new = "".join(listtext)
-                if i == 0:
-                    final = new
+    list_voyelle = ["a","e","i","o","u","y"]
+    if isinstance(word,str) and word:
+        if word[0] in list_voyelle:
+            return word + "way"
+        else :
+            result= deque()
+            result.appendleft("ay")
+            index_first_vowel = 0
+            list_consonant = [] #list of consonant to move before the ay
+            for w in word:
+                if w not in list_voyelle:
+                    list_consonant.append(w)
+                    index_first_vowel += 1
                 else:
-                    final += " " + new 
-            return final
+                    break
+            result.appendleft(''.join(list_consonant))
+            result.appendleft(word[index_first_vowel:])
+        return ''.join(d)
     return ''
 
 
