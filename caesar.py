@@ -1,4 +1,5 @@
-def rotate_word(text,number):
+#create a new word where each letter is move by "number" in the alphabet
+def rotate_word(text,number):  
     if isinstance(number,int) and isinstance(text,str) :
         number =number%26
         listext =  list(text)
@@ -16,6 +17,7 @@ def rotate_word(text,number):
                 listext[i] = chr(value)
         return "".join(listext)
 
+#Decipher a caesar text with the number
 def decript_word(text,number):
      if isinstance(number,int) and isinstance(text,str) :
         number =number%26
