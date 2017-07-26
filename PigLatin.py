@@ -1,7 +1,9 @@
 from collections import deque
 
-#function to translate a word into piglatin
 def translate(word):
+    """
+    function to translate a word into piglatin
+    """
     list_voyelle = ["a","e","i","o","u","y"]
     if isinstance(word,str) and word:
         if word[0] in list_voyelle:
